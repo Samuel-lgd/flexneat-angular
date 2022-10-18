@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"/></script>
+	<script src="../js/angular.js"></script>
+	<link rel="icon" type="image/png" href="../img/icon.png" />
+	<link rel="stylesheet" type="text/css" href="style_genres.css">
+	<title>flexneat</title>
+</head>
+
+<!-- MENU -->
+
+<body ng-app="flexneat" ng-controller="controller">
+	<div class = "menu">
+		<a href="../home.html"><img src="../img/FLEXNEAT.png" class = "logoMenu"></a>
+		<a href="../home.html"><h4 class ="btn_name">Accueil</h4></a>
+		<a href="genres.html"><h4 class ="btn_name">Genres</h4></a>
+		<div class="menu_deroulant">
+			<h4 class ="btn_name">Catégories</h4>
+			<div class="menu_list" ng-repeat ="elt in categories">
+				<a href="{{elt.id}}.html">{{elt.name}}</a>
+			</div>
+		</div>
+	</div>
+
+<!-- HAUT DE PAGE -->
+
+	<div class = "titre">
+		<h1>Genres</h1>
+		<br>
+		<h4>Rechercher un genre:</h4>
+		<select class="select" ng-model = "searchGenre">
+			<option class="option" >Tous les genres</option>
+			<option class="option" ng-repeat = "elt in genres">{{elt}}</option>
+		</select>
+	</div>
+
+<!-- VIDEOS / GENRES -->
+
+	<div class="content">
+		<div class = "videoList" ng-show = "searchGenre == genre || searchGenre == 'Tous les genres'" ng-repeat = "genre in genres"> 																				
+			<div class = "listName " controller ="hide"> 									
+				<h3>{{genre}}</h3>											
+			</div>	
+			<hr></hr>
+		<div class="cards"> 	
+			<div class = "card" ng-repeat = "elt in videos | filter: {genre:genre} | limitTo: 8">
+				<div class="description"> 						
+					<h2>{{elt.titre}}</h2>
+					<p class ="underline">_________________</p>		
+					<p class = "shadow">{{elt.genre}}</p>
+					<p>{{elt.description}}</p>
+				</div>
+				<img class = "cardImg" src="../{{elt.img}}">	
+				<div class = "cardTitle">
+					<h4>{{elt.titre}}</h4>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+
+<!-- FOOTER -->
+
+	<div class="footer">
+		<div class="bouton"><a href="legal.html">Mentions légales</a></div>
+		<div class="bouton"><a href="admins.html">Contact admins</a></div>
+		<div class="bouton"><a href="">Lagarde Samuel</a></div>
+		<img src="../img/FLEXNEAT.png" class="logoFooter">
+	</div>
+</body>
+</html>

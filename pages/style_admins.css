@@ -1,0 +1,199 @@
+html{
+   scroll-behavior: smooth;
+   min-height: 100vh;
+}
+body{
+   background-color: #0a0a0a;
+   width: 100%;
+   min-height: 95vh;
+   position: absolute;
+   margin: 0px;
+   padding: 0px;
+   overflow-x: hidden;
+   caret-color: transparent;
+   padding-bottom: 50px;
+}
+
+@font-face{
+   font-family: 'GothamBold';
+   src:  url("../fonts/GothamBold.ttf");
+}
+
+@font-face{
+   font-family: 'GothamLight';
+   src:  url("../fonts/GothamLight.ttf");
+}
+
+h4, h3, h2, h1, a{
+   margin: 0px;
+   color: white;
+   font-family: "GothamBold";
+   text-decoration: none;
+}
+
+p{
+   font-family: "GothamLight";
+   color: white;
+   margin-top: 7px;
+   margin-bottom: 7px;
+
+}
+
+@font-face{
+   font-family: 'Gotham';
+   src:  url("../fonts/GothamBold.ttf");
+}
+
+option{
+   font-family: "Arial";
+}
+
+/* MENU HAUT DE PAGE */
+
+.menu h4, a{
+   font-family: "GothamLight";
+}
+
+.menu {
+   display: flex;
+   width: 100%;
+   height: 60px;
+   background-color :rgba(0, 0, 0, 0.9);
+   padding: 0px;
+   position: fixed;
+   z-index: 100;
+}
+
+.logoMenu{
+   position: relative;
+   top: 14px;
+   height: 30px;
+   margin-left: 15px;
+}
+
+.btn_name{
+   background-color: #ffffff00;
+   padding: 20px;
+   margin-left: 10px;
+}
+
+/* MENU DEROULANT */
+
+.menu_list{
+   display: none;
+   background-color: rgba(0, 0, 0, 0.88);
+}
+
+.menu_list a {
+   padding: 10px;
+   display: block;
+}
+
+.menu_deroulant:hover .menu_list{
+   display: block;
+}
+
+/* FOOTER */
+.footer{
+   position: absolute;
+   bottom: 0px;
+   display: flex;
+   justify-content: space-around;
+   background-color: #050505;
+   width: 100%;
+   height: 50px;
+   align-items: center;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-left: 2%;
+}
+
+.logoFooter{
+   height: 30px;
+}
+
+/* DEBUT DE PAGE */
+
+.descCategorie{
+   margin-left: 2%;
+   margin-right: 2%;
+}
+
+.titre{
+   text-align: left;
+   font-size: 20px;
+   padding-top: 100px;
+   padding-bottom: 10px;}
+
+
+.content{
+   margin: 2%;
+   position: relative;
+}
+
+.videoIcons{
+   overflow-x: auto;
+   overflow-y: hidden;
+   white-space: nowrap;
+}
+
+.icon{
+   display: inline-block;
+   width: 15%;
+   min-width: 150px;
+   max-width: 250px;
+   margin: 1%;
+   margin-left: 4px;
+   border-radius: 7px;
+}
+
+.icon:hover{
+      box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 1px 3px;
+}
+
+.select{
+   margin-bottom: 15px;
+   margin-top: 5px;
+   height: 30px;
+   color: white;
+   background-color: black;
+   font-family: "GothamBold";
+   width: 100%;
+   min-width: 250px;
+   border-style: none;
+   background-color: #1c1c1c ;
+   border-radius: 5px;
+}
+
+.commentaire{
+   margin-bottom: 15px;
+   margin-top: 5px;
+   padding: 10px;
+   height: 90px;
+   color: white;
+   background-color: black;
+   font-family: "GothamLight";
+   width: calc(100% - 17px);
+   min-width: 250px;
+   border-style: none;
+   background-color: #1c1c1c ;
+   border-radius: 5px;
+}
+
+.send{
+   margin-top: 10px;
+   padding: 15px;
+   border-radius: 5px;
+   background-color: rgb(21, 21, 21);
+   border: 1px solid rgb(57, 57, 57);
+   
+}
+
+.send:hover{
+   background-color: #3a3a3a;
+   cursor: pointer;
+}
+
+.send:active{
+   background-color: #050505;
+}

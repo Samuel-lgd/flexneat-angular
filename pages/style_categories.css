@@ -1,0 +1,228 @@
+html{
+   scroll-behavior: smooth;
+   min-height: 100vh;
+}
+body{
+   background-color: #0a0a0a;
+   width: 100%;
+   min-height: 95vh;
+   position: absolute;
+   margin: 0px;
+   padding: 0px;
+   overflow-x: hidden;
+   caret-color: transparent;
+   padding-bottom: 50px;
+}
+
+@font-face{
+   font-family: 'GothamBold';
+   src:  url("../fonts/GothamBold.ttf");
+}
+
+@font-face{
+   font-family: 'GothamLight';
+   src:  url("../fonts/GothamLight.ttf");
+}
+
+h4, h2, h1, a{
+   margin: 0px;
+   color: white;
+   font-family: "GothamBold";
+   text-decoration: none;
+}
+
+p, h3{
+   font-family: "GothamLight";
+   color: white;
+   margin-top: 7px;
+   margin-bottom: 7px;
+
+}
+
+@font-face{
+   font-family: 'Gotham';
+   src:  url("../fonts/GothamBold.ttf");
+}
+
+h3{
+   margin-bottom: 7px;
+}
+
+option{
+   font-family: "Arial";
+}
+.menu h4, a{
+   font-family: "GothamLight";
+}
+
+.menu {
+   display: flex;
+   width: 100%;
+   height: 60px;
+   background-color :rgba(0, 0, 0, 0.9);
+   padding: 0px;
+   position: fixed;
+   z-index: 100;
+}
+
+.logoMenu{
+   position: relative;
+   top: 14px;
+   height: 30px;
+   margin-left: 15px;
+}
+
+.btn_name{
+   background-color: #ffffff00;
+   padding: 20px;
+   margin-left: 10px;
+}
+
+/* MENU DEROULANT */
+
+.menu_list{
+   display: none;
+   background-color: rgba(0, 0, 0, 0.88);
+}
+
+.menu_list a {
+   padding: 10px;
+   display: block;
+}
+
+.menu_deroulant:hover .menu_list{
+   display: block;
+}
+
+/* FOOTER */
+.footer{
+   position: absolute;
+   bottom: 0px;
+   display: flex;
+   justify-content: space-around;
+   background-color: #050505;
+   width: 100%;
+   height: 50px;
+   align-items: center;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-left: 2%;
+}
+
+.logoFooter{
+   height: 30px;
+}
+
+
+.head{
+   margin-top: 150px;
+}
+
+.descCategorie{
+   margin-left: 2%;
+   margin-right: 2%;
+}
+
+.content{
+   display: block;
+   margin: 2%;
+}
+
+.titre {
+   text-align: left;
+   font-size: 20px;
+   padding-top: 100px;
+   padding-bottom: 10px;
+}
+.searchBar {
+   display: inline;
+   margin-bottom: 20px;
+}
+
+.searchInput{
+   width: 73%;
+   height: 25px;
+}
+ 
+.select{
+   position: relative;
+   margin-left: 5px;
+   height: 34px;
+   padding-left: 5px;
+   color: white;
+   background-color: black;
+   font-family: "GothamBold";
+   width: 20%;
+   border-width: 3px;
+   border-style: none;
+   background-color: #1c1c1c ;
+   border-radius: 5px;
+   bottom: 1px;
+}
+
+.videoList {
+   margin-bottom: 25px;
+
+}
+.cardImg {
+   position: relative;
+   border-radius: 5px;
+   height: 140px;
+   width: 260px;
+   transition: 650ms;
+}
+
+.card {
+   position: relative;
+   display: flex;
+   height: 140px;
+   margin-right: 20px;
+   margin-bottom: 30px;
+   width: 95%;
+}
+
+.aucun{
+   background-color: rgba(252, 0, 0, 0.516);
+   padding: 10px;
+   border-radius: 5px;
+   width: 94%;
+}
+.description{
+   margin-left: 15px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 4;
+   -webkit-box-orient: vertical;
+}
+
+.underline{
+   border-top: 1px solid rgba(255, 255, 255, 0.1);; 
+   position: absolute;
+   width: 70%;
+   top: 145px;
+   display: none; /* C'est plus joli sans */
+}
+
+@media screen and (max-width: 650px){
+   .cardImg{
+      margin-left: -225px;
+   }                          /*On met l'image sur le coté*/
+   .cardImg:hover{
+      margin-left: 0px;
+   }
+
+   .description p:first-child{      
+      white-space: nowrap;
+   }
+                                 /* nowrap permet que le texte ne retourne pas a la ligne,   */
+   .description h1{              /* pour laisser + de lisibilité pour la description */
+      white-space: nowrap;
+   }
+}
+   
+@media screen and (max-width: 450px) {
+   .logoMenu{
+      margin-left: -100px;
+   }
+}

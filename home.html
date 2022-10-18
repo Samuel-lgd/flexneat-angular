@@ -1,0 +1,190 @@
+<!-- 
+LAGARDE SAMUEL, Flexneat
+Testé sur Firefox v101.0.1
+
+12/06/2022
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"/></script>
+	<script src="js/angular.js"></script>
+	<link rel="icon" type="image/png" href="img/icon.png" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Flexneat</title>
+</head>
+<body ng-app="flexneat">
+	<!-- TOP MENU -->
+
+	<div class = "menu">
+		<a href="#"><img id="logo" src="img/FLEXNEAT.png" class = "logoMenu hide"></a> 	<!--logoMenu : Apparait lorsque le grand :: --> 
+		<a href="#"><h4 class ="btn_name">Accueil</h4></a>									<!--::logo disparait via scroll. Script l.170-->
+		<a href="pages/genres.html"><h4 class ="btn_name">Genres</h4></a>
+		<div class="menu_deroulant" ng-controller="controller">
+			<h4 class ="btn_name">Catégories</h4>
+			<div class="menu_list" ng-repeat ="elt in categories">
+				<a href="pages/{{elt.id}}.html">{{elt.name}}</a>
+			</div>
+		</div>
+	</div>
+	<!-- LOGO -->
+	<div class = "logo">
+		<a href="#new"><img src="img/FLEXNEAT.png" height="250"></a>
+	</div>
+	<div id = "new"></div> <!-- new : lien vers nouveautés -->
+	<div class="content"> 
+
+		<!-- NOUVEAUTES -->
+									<!-- content :  tous les éléments de la page -->
+		<div class = "videoList" ng-controller="controller"> 	<!-- videoList : chaque catégories -->												
+			<div class = "listName"> 							<!-- listName : titre + boutons cacher / voir plus -->
+				<a href="pages/new.html" class = "categorieLink">		<!-- categorieLink / voirPlus: Lien vers la catégorie selectionéés -->
+					<h3>Nouveautés</h3>
+					<div class = "voirPlus">					
+						<p>Voir plus</p><i class="fleche"></i>
+					</div>
+				</a>												
+				<div class = "cacher" ng-click = "hideContent('news')">		<!-- cacher :  boutton pour cacher les cartes du dessous -->													
+					<p>														<!-- hideContent('catégorie') :  (angular.js > l.34), attribue ::-->
+						{{label}}											<!-- :: une classe aux cartes pour les faire disparaitre   -->
+						<i class="flecheHaut" ng-show="flecheHaut"></i> 	<!-- flecheHaut/Bas : (style.css l.256), représentation de flèche -->
+						<i class="flecheBas" ng-show="flecheBas" ></i>		<!-- flecheHaut/Bas : (angular.js l.32/44), true / false pour l'afficher -->
+					</p>	
+				</div>
+			</div>
+
+		<div class="cards"> 	<!-- Cards : toutes les vidéos de cette catégorie -->
+			<div id = "news{{$index}}" class = "card" ng-repeat = "elt in videos | filter: {new:true} | limitTo: max">
+				<div class="description"> 						<!--description : infos sur la série, cachés derrière l'image -->
+					<h2>{{elt.titre}}</h2>
+					<p class="underline">_________________</p>		<!-- <hr class = "underline"> aurait été plus aproprié ici-->
+					<p class = "shadow">{{elt.genre}}</p>
+					<p>{{elt.description}}</p>
+				</div>
+				<img class = "cardImg" src="{{elt.img}}">		<!-- Elements devants, disparaissent avec :hover -->
+				<div class = "cardTitle">
+					<h4>{{elt.titre}}</h4>
+				</div>
+			</div>
+		</div>
+		</div>
+
+
+		<!-- TENDANCES -->
+
+		<div class = "videoList"  ng-controller="controller">
+			<div class = "listName">
+				<a href="pages/trending.html" class = "categorieLink">
+				<h3>Les plus regardées</h3>
+					<div class = "voirPlus">					
+						<p>Voir plus</p><i class="fleche"></i>
+					</div>
+				</a>
+				<div class = "cacher" ng-click = "hideContent('trends')">
+					<p>{{label}} <i class="flecheBas" ng-show="flecheBas"></i><i class="flecheHaut" ng-show="flecheHaut" ></i></p>
+				</div>
+			</div>
+			<div class="cards">
+				<div id ="trends{{$index}}" class = "card" ng-repeat = "elt in videos | filter: {trending:true} | limitTo: max">
+					<div class="description">
+						<h2>{{elt.titre}}</h2>
+						<p class="underline">_________________</p>
+						<p class = "shadow">{{elt.genre}}</p>
+						<p>{{elt.description}}</p>
+					</div>
+					<img class = "cardImg" src="{{elt.img}}">
+					<div class = "cardTitle">
+						<h4>{{elt.titre}}</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- A TERMINER -->
+
+		<div id="watching" class = "videoList" ng-controller="controller">
+			<div class = "listName">
+				<a href="pages/watching.html" class = "categorieLink">
+					<h3>A terminer</h3>
+					<div class = "voirPlus">					
+						<p>Voir plus</p><i class="fleche"></i>
+					</div>
+				</a>
+				<div class = "cacher" ng-click = "hideContent('watching')">
+					<p>{{label}} <i class="flecheBas" ng-show="flecheBas"></i><i class="flecheHaut" ng-show="flecheHaut" ></i></p>
+				</div>
+			</div>
+		<div class="cards">
+			<div id ="watching{{$index}}" class = "card" ng-repeat = "elt in videos | filter: {statut:watching} | limitTo: max">
+				<div class="description" class = "categorieLink">
+					<h2>{{elt.titre}}</h2>
+					<p class = "underline">_________________</p>
+					<p class = "shadow">{{elt.genre}}</p>
+					<p>{{elt.description}}</p>
+				</div>
+				<img class = "cardImg" src="{{elt.img}}">
+				<div class = "cardTitle">
+					<h4>{{elt.titre}}</h4>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<!-- A REVOIR -->
+
+		<div class = "videoList" ng-controller="controller">
+			<div class = "listName">
+				<a href="pages/rewatch.html" class = "categorieLink">
+					<h3>A revoir</h3>
+					<div class = "voirPlus">					
+						<p>Voir plus</p><i class="fleche"></i>
+					</div>
+				</a>
+				<div class = "cacher" ng-click = "hideContent('rewatch')">
+					<p>{{label}} <i class="flecheBas" ng-show="flecheBas"></i><i class="flecheHaut" ng-show="flecheHaut" ></i></p>
+				</div>
+			</div>
+		<div class="cards">
+			<div id ="rewatch{{$index}}" class = "card" ng-repeat = "elt in videos | filter: {statut:rewatch} | limitTo: max">
+				<div class="description">
+					<h2>{{elt.titre}}</h2>
+					<p class = "underline">_________________</p>
+					<p class = "shadow">{{elt.genre}}</p>
+					<p>{{elt.description}}</p>
+				</div>
+				<img class = "cardImg" src="{{elt.img}}">
+				<div class = "cardTitle">
+					<h4>{{elt.titre}}</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<!-- FOOTER -->
+
+	<div class="footer">
+		<div class="bouton"><a href="pages/legal.html">Mentions légales</a></div>
+		<div class="bouton"><a href="pages/admins.html">Contact admins</a></div>
+		<img src="img/FLEXNEAT.png" class="logoFooter">
+	</div>
+
+	<!-- LOGO MENU SCRIPT -->
+
+	<script>
+		logo = document.getElementById("logo")			//On récupère notre élément logo
+		logoScroll = function() {
+		y = window.scrollY;								//On récupère la position du scroll
+		if (y >= 150) {
+			logo.className = "logoMenu show"			//On attribue une classe show / hide en fonction de la position du scroll
+		} else {
+			logo.className = "logoMenu hide"
+		}
+		};
+		window.addEventListener("scroll", logoScroll);	//On lance cette fonction à chaque scroll de l'user
+	</script>
+</body>
+</html>

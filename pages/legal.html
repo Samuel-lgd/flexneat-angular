@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"/></script>
+	<script src="../js/angular.js"></script>
+	<link rel="icon" type="image/png" href="../img/icon.png" />
+	<link rel="stylesheet" type="text/css" href="style_legal.css">
+	<title>flexneat</title>
+</head>
+<body ng-app="flexneat">
+	<div class = "menu">
+		<a href="../home.html"><img src="../img/FLEXNEAT.png" class = "logoMenu"></a>
+		<a href="../home.html"><h4 class ="btn_name">Accueil</h4></a>
+		<a href="genres.html"><h4 class ="btn_name">Genres</h4></a>
+		<div class="menu_deroulant" ng-controller="controller">
+			<h4 class ="btn_name">Catégories</h4>
+			<div class="menu_list" ng-repeat ="elt in categories">
+				<a href="{{elt.id}}.html">{{elt.name}}</a>
+			</div>
+		</div>
+	</div>
+	<div class = "logo">
+		<img src="../img/FLEXNEAT.png" height="250">
+	</div>
+	<div id = "new"></div>
+	<div class="content">
+		<p>Flexneat a des utilisateurs dans de nombreux pays. L'entité Flexneat qui vous fournit l'accès au service Flexneat et qui porte la responsabilité du traitement de vos informations personnelles dépend de votre pays d'abonnement. Cette entité sera indiquée dans l'e-mail de confirmation de votre abonnement ou de votre paiement.</p>
+	</div>
+	<div class="footer">
+		<div class="bouton"><a href="legal.html">Mentions légales</a></div>
+		<div class="bouton"><a href="admins.html">Contact admins</a></div>
+		<div class="bouton"><a>Lagarde Samuel</a></div>
+		<img src="../img/FLEXNEAT.png" class="logoFooter">
+	</div>
+</body>
+</html>

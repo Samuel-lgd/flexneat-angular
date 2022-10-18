@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"/></script>
+	<script src="../js/angular.js"></script>
+	<link rel="icon" type="image/png" href="../img/icon.png" />
+	<link rel="stylesheet" type="text/css" href="style_admins.css">
+	<title>flexneat</title>
+</head>
+<body ng-app="flexneat" ng-controller="controller">
+	<div class = "menu">
+		<a href="../home.html"><img src="../img/FLEXNEAT.png" class = "logoMenu"></a>
+		<a href="../home.html"><h4 class ="btn_name">Accueil</h4></a>
+		<a href="genres.html"><h4 class ="btn_name">Genres</h4></a>
+		<div class="menu_deroulant">
+			<h4 class ="btn_name">Catégories</h4>
+			<div class="menu_list" ng-repeat ="elt in categories">
+				<a href="{{elt.id}}.html">{{elt.name}}</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="descCategorie">
+		<div class = "titre">
+			<h1>Formulaire de signalement</h1>
+		</div>
+	</div>
+	
+	<div class="content">
+		<form>
+			<p><b>Vidéo à signaler:</b></p>
+			<input list = "videos" class="select" ng-model="video" required>
+				<datalist id="videos">
+					<option ng-repeat = "elt in videos">{{elt.titre}}</option>
+				</datalist>
+			<div class="videoIcons">
+				<img class="icon" ng-click = "setTitle(elt.titre)" ng-repeat="elt in videos | filter : {titre:video}" src="../{{elt.img}}">
+			</div>
+			<p><b>Motif de signalement:</b></p>
+			<select class="select" ng-model = "motive">
+				<option>Vidéo choquante ou irrespectueuse</option>
+				<option>Vidéo dans une mauvaise catégorie</option>
+				<option>Erreur dans la description de la vidéo</option>
+			</select>
+			<p><b>Commentaires:</b></p>
+			<textarea maxlength="500" class="commentaire" required></textarea>
+			<button class="send" type="submit" ng-click = "verif()"><h4>Envoyer</h4></button>
+			<div class="msgError" ng-show="verifBool"><p>ERREUR</p></div>
+		</form>
+	</div>
+	</div>
+	<div class="footer">
+		<div class="bouton"><a href="legal.html">Mentions légales</a></div>
+		<div class="bouton"><a href="admins.html">Contact admins</a></div>
+		<div class="bouton"><a href="">Lagarde Samuel</a></div>
+		<img src="../img/FLEXNEAT.png" class="logoFooter">
+	</div>
+</body>
+</html>

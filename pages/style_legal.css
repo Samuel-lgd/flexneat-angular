@@ -1,0 +1,125 @@
+html{
+   scroll-behavior: smooth;
+   min-height: 100vh;
+}
+body{
+   background-color: #0a0a0a;
+   width: 100%;
+   min-height: 97vh;
+   position: absolute;
+   margin: 0px;
+   padding: 0px;
+   overflow-x: hidden;
+   caret-color: transparent;
+   padding-bottom: 25px;
+}
+
+@font-face{
+   font-family: 'GothamBold';
+   src:  url("../fonts/GothamBold.ttf");
+}
+
+@font-face{
+   font-family: 'GothamLight';
+   src:  url("../fonts/GothamLight.ttf");
+}
+
+h4, h3, h2, h1, a{
+   margin: 0px;
+   color: white;
+   font-family: "GothamBold";
+   text-decoration: none;
+}
+
+p{
+   font-size: 18px;
+   font-family: "GothamLight";
+   color: white;
+   margin: 50px;
+   text-align: center;
+   margin-bottom: 100px;
+
+}
+
+/* MENU HAUT DE PAGE */
+
+.menu h4, a{
+   font-family: "GothamLight";
+}
+
+.menu {
+   display: flex;
+   width: 100%;
+   height: 60px;
+   background-color :rgba(0, 0, 0, 0.9);
+   padding: 0px;
+   position: fixed;
+   z-index: 100;
+}
+
+.logoMenu{
+   position: relative;
+   top: 14px;
+   height: 30px;
+   margin-left: 15px;
+}
+
+.btn_name{
+   background-color: #ffffff00;
+   padding: 20px;
+   margin-left: 10px;
+}
+
+/* MENU DEROULANT */
+
+.menu_list{
+   display: none;
+   background-color: rgba(0, 0, 0, 0.88);
+}
+
+.menu_list a {
+   padding: 10px;
+   display: block;
+}
+
+.menu_deroulant:hover .menu_list{
+   display: block;
+}
+/* footer */
+.footer{
+   position: absolute;
+   bottom: 0px;
+   display: flex;
+   justify-content: space-around;
+   background-color: #050505;
+   width: 100%;
+   height: 50px;
+   align-items: center;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-left: 2%;
+}
+
+.logoFooter{
+   height: 30px;
+}
+
+.content{
+   display: flex;
+   margin: 2%;
+   justify-content: center;
+}
+
+.content p{
+   width: 70%;
+}
+
+.logo {
+   text-align: center;
+   padding-top: 75px;
+}
+
+.logo img{
+   height:  100%;
+   width:  50%;
+}

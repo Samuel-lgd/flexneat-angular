@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"/></script>
+	<script src="../js/angular.js"></script>
+	<link rel="icon" type="image/png" href="../img/icon.png" />
+	<link rel="stylesheet" type="text/css" href="style_categories.css">
+	<title>Categories</title>
+</head>
+<body ng-app="flexneat" ng-controller="controller">
+	<div class = "menu">
+		<a href="../home.html"><img src="../img/FLEXNEAT.png" class = "logoMenu"></a>
+		<a href="../home.html"><h4 class ="btn_name">Accueil</h4></a>
+		<a href="genres.html"><h4 class ="btn_name">Genres</h4></a>
+		<div class="menu_deroulant">
+			<h4 class ="btn_name">Catégories</h4>
+			<div class="menu_list" ng-repeat ="elt in categories">
+				<a href="{{elt.id}}.html">{{elt.name}}</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="descCategorie">
+		<div class = "titre">
+			<h1>Nouveautés</h1>
+			<h3>Toutes les nouveautés sont ici.</h3>
+		</div>
+
+		<div class = "searchBar">
+			<input class = "searchInput" type="text" placeholder="Rechercher..." ng-model = 'searchText'/>
+			<select class="select" ng-model = "search">
+				<option>titre</option>
+				<option>annee</option>
+				<option>realisateur</option>
+				<option>genre</option>
+				<option>acteur</option>
+			</select>
+		</div>
+	</div>
+	<div class="content">
+	<div class = "aucun" ng-show = "results((videos | filter : {titre:searchText} | filter : {new:true}).length) && search == 'titre'">
+		<p>Pas de resultats.</p>
+	</div>
+	<div class = "aucun" ng-show = "results((videos | filter : {annee:searchText} | filter : {new:true}).length) && search == 'annee'">
+		<p>Pas de resultats.</p>
+	</div>
+	<div class = "aucun" ng-show = "results((videos | filter : {realisateur:searchText} | filter : {new:true}).length) && search == 'realisateur'">
+		<p>Pas de resultats.</p>
+	</div>
+	<div class = "aucun" ng-show = "results((videos | filter : {genre:searchText} | filter : {new:true}).length) && search == 'genre'">
+		<p>Pas de resultats.</p>
+	</div>
+	<div class = "aucun" ng-show = "results((videos | filter : {acteur:searchText} | filter : {new:true}).length) && search == 'acteur'">
+		<p>Pas de resultats.</p>
+	</div>
+	<div class = "videoList">
+			<div class = "card" ng-show="search == 'titre'" ng-repeat = "serie in videos | filter : {titre:searchText} | filter : {new:true}" > <!--  -->
+				<img class = "cardImg" src=../{{serie.img}}>
+				<hr class ="underline"></hr>
+				<div class="description">
+					<h1>{{serie.titre}}</h1>
+					<b><p>{{serie.genre}} | {{serie.annee}}</p></b>
+					<p>{{serie.description}}</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class = "card" ng-show="search == 'annee'" ng-repeat = "serie in videos | filter : {annee:searchText} | filter : {new:true}" >
+			<img class = "cardImg" src=../{{serie.img}}>
+				<hr class ="underline"></hr>
+				<div class="description">
+					<h1>{{serie.titre}}</h1>
+				<b><p>{{serie.genre}} | {{serie.annee}}</p></b>
+				<p>{{serie.description}}</p>
+			</div>
+		</div>
+
+
+		<div class = "card" ng-show="search == 'realisateur'" ng-repeat = "serie in videos | filter : {realisateur:searchText} | filter : {new:true}" >
+			<img class = "cardImg" src=../{{serie.img}}>
+				<hr class ="underline"></hr>
+				<div class="description">
+					<h1>{{serie.titre}}</h1>
+				<b><p>{{serie.genre}} | {{serie.annee}}</p></b>
+				<p>{{serie.description}}</p>
+			</div>
+		</div>
+
+
+		<div class = "card" ng-show="search == 'genre'" ng-repeat = "serie in videos | filter : {genre:searchText} | filter : {new:true}" >
+			<img class = "cardImg" src=../{{serie.img}}>
+				<hr class ="underline"></hr>
+				<div class="description">
+					<h1>{{serie.titre}}</h1>
+				<b><p>{{serie.genre}} | {{serie.annee}}</p></b>
+				<p>{{serie.description}}</p>
+			</div>
+		</div>
+
+
+		<div class = "card" ng-show="search == 'acteur'" ng-repeat = "serie in videos | filter : {acteur:searchText} | filter : {new:true}" >
+			<img class = "cardImg" src=../{{serie.img}}>
+				<hr class ="underline"></hr>
+				<div class="description">
+					<h1>{{serie.titre}}</h1>
+				<b><p>{{serie.genre}} | {{serie.annee}}</p></b>
+				<p>{{serie.description}}</p>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="footer">
+		<div class="bouton"><a href="legal.html">Mentions légales</a></div>
+		<div class="bouton"><a href="admins.html">Contact admins</a></div>
+		<div class="bouton"><a href="">Lagarde Samuel</a></div>
+		<img src="../img/FLEXNEAT.png" class="logoFooter">
+	</div>
+</body>
+</html>
